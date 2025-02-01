@@ -1,0 +1,14 @@
+[project]
+name = "pytransfer"
+version = "0.1.0"
+description = "A simple file transfer wrapper around rsync written in Python."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["loguru"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+pytransfer = "pytransfer:main"
