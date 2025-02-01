@@ -38,14 +38,14 @@ def check_args(args: argparse.Namespace):
 
 def upload(file: Path, remote: str):
     if file.is_file():
-        command = f"rsync {file} {remote}/{file}"
+        command = f"rsync {file} {remote}"
         try:
             subprocess.run(command, shell=True, text=True, check=True)
         except subprocess.CalledProcessError as e:
             logger.error(f"Error uploading {file}: {e}")
 
     elif file.is_dir():
-        command = f"rsync -av {file} {remote}/{file} --exclude={file}/.git"
+        command = f"rsync -av {file} {remote} --exclude={file}/.git"
         try:
             subprocess.run(command, shell=True, text=True, check=True)
         except subprocess.CalledProcessError as e:
